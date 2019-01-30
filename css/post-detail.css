@@ -1,0 +1,63 @@
+body {min-height:1000px;padding-top: 70px;}
+.img-brand{width: 50px; height: 50px}
+.navbar-brand{padding: 0 15px;}
+.nav a{font-size: 16px}
+.fa-sign-in{font-size: 18px}
+
+/*文章内容*/
+.main-wrapper{min-height:1000px;width: 75%;float: left; overflow: hidden;background-color: #f8f8f8 }
+.main-wrapper .content-wrapper{width: 100%; padding: 20px; border-bottom: 1px solid #eeeeee}
+.main-wrapper .content-wrapper .title{color: #212121; font-size: 24px; font-weight: 400; margin: 0; padding-bottom: 20px}
+.main-wrapper .content-wrapper .post-info{width: 100%;height: 30px; overflow: hidden; margin-bottom: 20px}
+.main-wrapper .content-wrapper .post-info .left-info{float: left}
+.main-wrapper .content-wrapper .post-info .left-info span{line-height:30px;margin-right: 10px}
+.main-wrapper .content-wrapper .post-info .right-info{float: right; overflow: hidden}
+.main-wrapper .content-wrapper .post-info .right-info span{line-height: 30px;float: left}
+.main-wrapper .content-wrapper .post-info .right-info .share-item{background-image: url("https://www.xfz.cn/static/build/images/share.png");background-size: 240%;background-repeat: no-repeat;width: 30px;height: 30px;float: left;}
+.main-wrapper .content-wrapper .post-info .right-info .weibo{background-position: -42px 0;margin-left: 10px}
+.main-wrapper .content-wrapper .post{width:100%;margin-bottom: 20px;}
+.main-wrapper .content-wrapper .post img{max-width: 100%}
+
+/*相关推荐*/
+.main-wrapper .related-post-wrapper{width: 100%; padding: 20px; border-bottom: 1px solid #eeeeee}
+.main-wrapper .related-post-wrapper .list-group{overflow: hidden}
+.main-wrapper .related-post-wrapper .list-group li{list-style: none; width: 100%;border-bottom: 1px solid #eeeeee}
+.main-wrapper .related-post-wrapper .list-group li:last-of-type{border-bottom: none}
+.main-wrapper .related-post-wrapper .post-wrapper{padding: 10px 0;}
+.main-wrapper .related-post-wrapper .post-wrapper .title a{color: #212121; font-size: 18px; text-decoration: none}
+.main-wrapper .related-post-wrapper .post-wrapper .title a:hover{text-decoration: underline}
+.main-wrapper .related-post-wrapper .post-wrapper .desc{color: gray;height: 60px; line-height: 20px}
+.main-wrapper .related-post-wrapper .post-wrapper .more-info{overflow: hidden}
+.main-wrapper .related-post-wrapper .post-wrapper .more-info .info-left{float: left; overflow: hidden}
+.main-wrapper .related-post-wrapper .post-wrapper .more-info .info-left a{text-decoration:none;margin-right: 10px; color: gray}
+.main-wrapper .related-post-wrapper .post-wrapper .more-info .info-right{float: right; overflow: hidden}
+.main-wrapper .related-post-wrapper .post-wrapper .more-info .info-right span{ margin-left: 10px;color: gray}
+
+/*评论*/
+.main-wrapper .comment-wrapper{width:100%;padding: 20px}
+.main-wrapper .comment-wrapper .btn-group {margin-top: 5px; width: 100%}
+.main-wrapper .comment-wrapper .btn-group button{float: right}
+.main-wrapper .comment-wrapper .comment-list{width: 100%; margin-top: 30px}
+.main-wrapper .comment-wrapper .comment-list li{border-bottom: 1px solid #eeeeee; list-style: none; margin-bottom: 10px;}
+.main-wrapper .comment-wrapper .comment-list li:last-of-type{border-bottom: none}
+.main-wrapper .comment-wrapper .comment-list .comment-info{overflow: hidden;height: 40px;line-height: 40px;color: gray;font-size: 14px;}
+.main-wrapper .comment-wrapper .comment-list .comment-info img{ float: left;width: 40px;height: 40px;border-radius: 50%;}
+.main-wrapper .comment-wrapper .comment-list .comment-info .author{float: left;margin-left: 20px;}
+.main-wrapper .comment-wrapper .comment-list .comment-info .pub-time{float:right;}
+.main-wrapper .comment-wrapper .comment-list .comment-content{margin-left: 60px;margin-top: 10px; font-size: 15px}
+/*右侧边栏*/
+.right-bar{width: 24%; height: 500px; float: right}
+.right-bar .hot-post{background-color: #f8f8f8; padding: 10px 20px}
+.right-bar .hot-post h4{border-bottom: 1px solid #eeeeee; padding-bottom: 3px; box-sizing: border-box}
+.right-bar .hot-post .list-group li{margin-top: 5px; list-style: none;border-bottom: 1px solid #eeeeee}
+.right-bar .hot-post .list-group li:last-of-type{border-bottom: none}
+.right-bar .hot-post .list-group .more-info{overflow: hidden; padding-bottom: 5px}
+.right-bar .hot-post .list-group .more-info .info-left{float: left}
+.right-bar .hot-post .list-group .more-info .info-right{float: right}
+.right-bar .hot-post .list-group a{color: #212121; font-size: 15px}
+/*广告位*/
+.right-bar .advertisement{width: 100%;height: 150px; background-color: #f8f8f8; text-align: center;line-height: 150px; margin-top: 10px}
+
+/*页脚*/
+.footer{width:100%; height:60px; background-color: #f8f8f8; text-align: center; line-height: 60px; margin-top: 20px}
+.footer p{margin: 0}

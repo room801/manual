@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/simditor/css/simditor.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/post-detail.css">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Brand" class="img-brand">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">首页</a></li>
+                <li class=""><a href="combat.html">实战</a></li>
+                <li class=""><a href="#">归档</a></li>
+                <li class=""><a href="#">搜索</a></li>
+                <li class=""><a href="#">打赏</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=""><i class="fa fa-sign-in"></i> 登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="container">
+    <div class="main-wrapper">
+        <div class="content-wrapper">
+            <h1 class="title">自定义认证后台</h1>
+            <div class="post-info">
+                <div class="left-info">
+                    <span>张旭楠</span>
+                    <span>2019/01/30</span>
+                    <span>WEB框架</span>
+                </div>
+                <div class="right-info">
+                    <span>分享至：</span>
+                    <a class="weixin share-item" href=""></a>
+                    <a class="weibo share-item" href=""></a>
+                </div>
+            </div>
+            <article class="post">
+                <p>Django auth
+                    应用默认支持用户名（username）进行登录。但是在实践中，网站可能还需要邮箱、手机号、身份证号等进行登录，这就需要我们自己写一个认证后台，用于验证用户输入的用户信息是否正确，从而对拥有正确凭据的用户进行登录认证。</p>
+                <h2 id="django-验证用户合法性的方式">Django 验证用户合法性的方式</h2>
+                <p>Django 对用户登录的验证工作均在一个被称作认证后台（Authentication Backend）的类中进行。这个类是一个普通的 Python 类，它有一个
+                    <code>authenticate</code> 方法，接收登录用户提供的凭据（如用户名或者邮箱以及密码）作为参数，并根据这些凭据判断用户是否合法（即是否是已注册用户，密码是否正确等）。下面是
+                    Django 内置的认证后台的部分源代码，从代码中可以清晰地看到其工作方式：</p>
+                <div class="codehilite"><pre><span></span><span class="n">django</span><span class="o">.</span><span
+                        class="n">contrib</span><span class="o">.</span><span class="n">auth</span><span
+                        class="o">.</span><span class="n">backends</span>
+
+<span class="k">class</span> <span class="nc">ModelBackend</span><span class="p">(</span><span
+                            class="nb">object</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Authenticates against settings.AUTH_USER_MODEL.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span
+                            class="bp">self</span><span class="p">,</span> <span class="n">request</span><span
+                            class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="bp">None</span><span
+                            class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="bp">None</span><span
+                            class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span
+                            class="p">):</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span
+                            class="bp">None</span><span class="p">:</span>
+            <span class="n">username</span> <span class="o">=</span> <span class="n">kwargs</span><span
+                            class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">UserModel</span><span
+                            class="o">.</span><span class="n">USERNAME_FIELD</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">UserModel</span><span
+                            class="o">.</span><span class="n">_default_manager</span><span class="o">.</span><span
+                            class="n">get_by_natural_key</span><span class="p">(</span><span
+                            class="n">username</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">UserModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span
+                            class="p">:</span>
+            <span class="c1"># Run the default password hasher once to reduce the timing</span>
+            <span class="c1"># difference between an existing and a non-existing user (#20760).</span>
+            <span class="n">UserModel</span><span class="p">()</span><span class="o">.</span><span class="n">set_password</span><span
+                            class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span
+                            class="n">check_password</span><span class="p">(</span><span class="n">password</span><span
+                            class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span
+                            class="o">.</span><span class="n">user_can_authenticate</span><span class="p">(</span><span
+                            class="n">user</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user</span>
+</pre>
+                </div>
+
+
+                <p>这段代码根据用户传入的 username 和 password，验证该 username 对应的用户是否存在以及密码是否正确，是则返回该 user 对象。</p>
+                <p>可以定义多个认证后台，Django 内部会逐一调用这些后台的 <code>authenticate</code>
+                    方法来验证用户提供登录凭据的合法性，一旦通过某个后台的验证，表明用户提供的凭据合法，从而允许登录该用户。</p>
+                <h2 id="email-backend">Email Backend</h2>
+                <p>在本示例项目中，用户注册时需要填写邮箱。因为 Django auth 应用内置只支持用户名和密码的认证方式，所以目前用户是无法使用 Email
+                    进行登录的。为了实现邮箱登录，我们需要编写一个认证后台。这个后台的作用便是验证用户提供的凭据（这里是邮箱以及密码）是合法的，完全仿照内置的 <code>ModelBackend</code>
+                    代码即可。首先在 users 应用下新建一个 backends.py 文件，然后写入如下代码：</p>
+                <div class="codehilite"><pre><span></span><span class="n">users</span><span class="o">/</span><span
+                        class="n">backends</span><span class="o">.</span><span class="n">py</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="k">class</span> <span class="nc">EmailBackend</span><span class="p">(</span><span
+                            class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span
+                            class="bp">self</span><span class="p">,</span> <span class="n">request</span><span
+                            class="p">,</span> <span class="o">**</span><span class="n">credentials</span><span
+                            class="p">):</span>
+        <span class="c1"># 要注意登录表单中用户输入的用户名或者邮箱的 field 名均为 username</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="n">credentials</span><span class="o">.</span><span
+                            class="n">get</span><span class="p">(</span><span class="s1">'email'</span><span
+                            class="p">,</span> <span class="n">credentials</span><span class="o">.</span><span
+                            class="n">get</span><span class="p">(</span><span class="s1">'username'</span><span
+                            class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span
+                            class="o">.</span><span class="n">objects</span><span class="o">.</span><span
+                            class="n">get</span><span class="p">(</span><span class="n">email</span><span
+                            class="o">=</span><span class="n">email</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span
+                            class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span
+                            class="n">check_password</span><span class="p">(</span><span
+                            class="n">credentials</span><span class="p">[</span><span class="s2">"password"</span><span
+                            class="p">]):</span>
+                <span class="k">return</span> <span class="n">user</span>
+
+    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span
+                            class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        该方法是必须的</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span
+                            class="n">objects</span><span class="o">.</span><span class="n">get</span><span
+                            class="p">(</span><span class="n">pk</span><span class="o">=</span><span
+                            class="n">user_id</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">User</span><span class="o">.</span><span
+                            class="n">DoesNotExist</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+</pre>
+                </div>
+
+
+                <p>逻辑非常简单，就是根据用户提供的 Email 和密码，检查该 emai 对应的用户是否存在，如果存在则检查密码是否正确，如果密码也没有问题，则返回该 user 对象。</p>
+                <h2 id="配置-backend">配置 Backend</h2>
+                <p>接下来就要告诉 Django，需要使用哪些 Backends 对用户的凭据信息进行验证，这需要在 settings.py 中设置：</p>
+                <div class="codehilite"><pre><span></span><span class="n">settings</span><span class="o">.</span><span
+                        class="n">py</span>
+
+<span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">'django.contrib.auth.backends.ModelBackend'</span><span class="p">,</span>
+    <span class="s1">'users.backends.EmailBackend'</span><span class="p">,</span>
+<span class="p">)</span>
+</pre>
+                </div>
+
+
+                <p>第一个 Backend 是 Django 内置的 Backend，当用户提供的是用户名和正确的密码时该 Backend 会通过验证；第二个 Backend 是刚刚自定义的 Backend，当用户提供的是
+                    Email 和正确的密码时该 Backend 会通过验证。</p>
+                <h2 id="测试">测试</h2>
+                <p>在登录界面输入注册时的邮箱和正确的密码，可以发现也可以登录成功了，说明我们自定义的 Backend 是有效的。大功告成！</p>
+            </article>
+        </div>
+        <div class="related-post-wrapper">
+            <h3>相关推荐</h3>
+            <ul class="list-group">
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth 应用默认支持用户名（username）进行登录。但是在实践中，网站可能还需要邮箱、手机号、身份证号等进行登录，这就需要我们自己写一个认证后台，用于验证用户输入的用户信息是否正确，从而对拥有正确凭据的用户进行登录认证。 Django 验证用户合法性的方式 Django 对用户登 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>123</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>230</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="comment-wrapper">
+            <h3>请评论（4条评论）</h3>
+            <textarea id="editor" placeholder="评论"></textarea>
+            <div class="btn-group">
+                <button class="btn btn-success btn-comment">发表评论</button>
+            </div>
+
+            <ul class="comment-list list-group">
+                <li>
+                    <div class="comment-info">
+                        <img src="https://avatars2.githubusercontent.com/u/32832358?v=4" alt="" class="avatar">
+                        <span class="author">张旭楠</span>
+                        <span class="pub-time">2小时前</span>
+                    </div>
+                    <p class="comment-content">这篇文章写的不错，转了。</p>
+                </li>
+                <li>
+                    <div class="comment-info">
+                        <img src="https://avatars2.githubusercontent.com/u/32832358?v=4" alt="" class="avatar">
+                        <span class="author">刘德华</span>
+                        <span class="pub-time">2小时前</span>
+                    </div>
+                    <p class="comment-content">这篇文章写的还可以。</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-bar">
+        <div class="hot-post">
+            <h4>热门文章</h4>
+            <ul class="list-group">
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth
+                            应用默认支持用户名进行登录。但是在实践中...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <span>WEB框架</span>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth
+                            应用默认支持用户名进行登录。但是在实践中...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <span>WEB框架</span>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth
+                            应用默认支持用户名进行登录。但是在实践中...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <span>WEB框架</span>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth
+                            应用默认支持用户名进行登录。但是在实践中...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <span>WEB框架</span>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth
+                            应用默认支持用户名进行登录。但是在实践中...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <span>WEB框架</span>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="advertisement">
+            广告位
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>© 2019 纸飞机的博客 京ICP备16036143号-1</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="assets/simditor/js/module.js"></script>
+<script src="assets/simditor/js/hotkeys.js"></script>
+<script src="assets/simditor/js/simditor.js"></script>
+<script src="js/post-detail.js"></script>
+</body>
+</html>
