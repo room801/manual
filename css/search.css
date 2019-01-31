@@ -1,0 +1,52 @@
+body {min-height:1000px;padding-top: 70px;}
+.img-brand{width: 50px; height: 50px}
+.navbar-brand{padding: 0 15px;}
+.nav a{font-size: 16px}
+.fa-sign-in{font-size: 18px}
+
+.main-wrapper{min-height:1000px;width: 75%;float: left; overflow: hidden}
+/*搜索框*/
+.main-wrapper .search-wrapper{width: 100%; height:150px; padding: 20px; background-color: #f8f8f8;}
+.main-wrapper .search-wrapper form{padding-top: 30px}
+.main-wrapper .search-wrapper input{box-shadow: none}
+.main-wrapper .search-wrapper input:focus{outline: none;box-shadow: none;border: 1px solid #ccc;}
+.main-wrapper .search-wrapper button {background-color: #f8f8f8; outline: none; box-shadow: none; border: 1px solid #ccc}
+.main-wrapper .search-wrapper button:active {outline: none; box-shadow: none; border: 1px solid #ccc}
+
+/*推荐文章*/
+.main-wrapper .content-wrapper{background-color: #f8f8f8;width: 100%;padding: 10px 20px; box-sizing: border-box; margin-top: 10px}
+.main-wrapper .content-wrapper h4{font-weight: 500}
+.main-wrapper .content-wrapper .list-group{overflow: hidden}
+.main-wrapper .content-wrapper .list-group li{list-style: none; width: 100%;border-bottom: 1px solid #eeeeee}
+.main-wrapper .content-wrapper .list-group li:last-of-type{border-bottom: none}
+.content-wrapper .post-wrapper{padding: 10px 20px;}
+.content-wrapper .post-wrapper .title a{color: #212121; font-size: 16px; text-decoration: none}
+.content-wrapper .post-wrapper .title a:hover{text-decoration: underline}
+.content-wrapper .post-wrapper .desc{color: gray;height: 60px; line-height: 20px}
+.content-wrapper .post-wrapper .more-info{overflow: hidden}
+.content-wrapper .post-wrapper .more-info .info-left{float: left; overflow: hidden}
+.content-wrapper .post-wrapper .more-info .info-left a{text-decoration:none;margin-right: 10px; color: gray}
+.content-wrapper .post-wrapper .more-info .info-right{float: right; overflow: hidden}
+.content-wrapper .post-wrapper .more-info .info-right span{ margin-left: 10px;color: gray}
+/*加载更多文章按钮*/
+.main-wrapper .load-more{width: 100%; height: 40px; text-align: center}
+.main-wrapper .load-more .load-btn{width: 400px; height:40px; background: #d2dcea;color: gray;border: none;outline: none;cursor: pointer; }
+
+/*右侧边栏*/
+.right-bar{width: 24%; height: 500px; float: right}
+/*推荐博客*/
+.right-bar .recommend{background-color: #f8f8f8; padding: 10px 10px}
+.right-bar .recommend h4{border-bottom: 1px solid #eeeeee; padding-bottom: 3px; box-sizing: border-box}
+.right-bar .recommend .list-group li{margin-top: 2px; margin-left: 20px}
+.right-bar .recommend .list-group a{color: #212121; font-size: 15px}
+/*友情链接*/
+.right-bar .friendly-link{background-color: #f8f8f8; padding: 10px 10px; margin-top: 10px}
+.right-bar .friendly-link h4{border-bottom: 1px solid #eeeeee; padding-bottom: 3px; box-sizing: border-box}
+.right-bar .friendly-link .list-group li{margin-top: 2px; margin-left: 20px}
+.right-bar .friendly-link .list-group a{color: #212121; font-size: 15px}
+/*广告位*/
+.right-bar .advertisement{width: 100%;height: 150px; background-color: #f8f8f8; text-align: center;line-height: 150px; margin-top: 10px}
+
+/*页脚*/
+.footer{width:100%; height:80px; background-color: #f8f8f8; text-align: center; line-height: 80px; margin-top: 20px}
+.footer p{margin: 0}

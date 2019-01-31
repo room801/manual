@@ -2,9 +2,189 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>搜索</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
 <body>
-$END$
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="img/logo.png" alt="Brand" class="img-brand">
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="index.html">首页</a></li>
+                <li class=""><a href="combat.html">实战</a></li>
+                <li class=""><a href="#">归档</a></li>
+                <li class="active"><a href="#">搜索</a></li>
+                <li class=""><a href="#">打赏</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href=""><i class="fa fa-sign-in"></i> 登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="container">
+    <div class="main-wrapper">
+        <div class="search-wrapper">
+            <form action="" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="请输入关键字"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-lg" type="button">搜索一下</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="content-wrapper">
+            <h4>热门推荐</h4>
+            <ul class="list-group">
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="post-detail.html">自定义认证后台</a>
+                        </p>
+                        <p class="desc">
+                            Django auth 应用默认支持用户名（username）进行登录。但是在实践中，网站可能还需要邮箱、手机号、身份证号等进行登录，这就需要我们自己写一个认证后台，用于验证用户输入的用户信息是否正确，从而对拥有正确凭据的用户进行登录认证。 Django 验证用户合法性的方式 Django 对用户登 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>123</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>230</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="post-wrapper">
+                        <p class="title">
+                            <a href="">重置密码</a>
+                        </p>
+                        <p class="desc">
+                            再此之前我们已经完成了用户登录、注册、注销等功能，接下来让我们继续为用户提供修改密码的功能。该功能 Django 的 auth 应用也已经为我们提供，过程几乎和之前的登录功能完全一样。 编写修改密码模板 修改密码的的视图函数默认渲染的模板名为 password_change_form.html，因此 ...
+                        </p>
+                        <div class="more-info">
+                            <div class="info-left">
+                                <a href="javascript:void(0);"><i class="fa fa-eye" aria-hidden="true"></i>2322</a>
+                                <a href="javascript:void(0);"><i class="fa fa-comments"></i>20</a>
+                                <a href="javascript:void(0);"><i class="fa fa-folder"></i>Django</a>
+                            </div>
+                            <div class="info-right">
+                                <span class="author">张旭楠</span>
+                                <span class="pub-time">2小时前</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="right-bar">
+        <div class="recommend">
+            <h4>推荐博客</h4>
+            <ul class="list-group">
+                <li><a target="_blank" href="https://www.zmrenwu.com">追梦人物</a></li>
+                <li><a target="_blank" href="https://www.the5fire.com">the5fire</a></li>
+                <li><a target="_blank" href="http://projectsedu.com">聚学在线</a></li>
+            </ul>
+        </div>
+        <div class="friendly-link">
+            <h4>友情连接</h4>
+            <ul class="list-group">
+                <li><a target="_blank" href="https://www.zmrenwu.com">追梦人物</a></li>
+                <li><a target="_blank" href="https://www.the5fire.com">the5fire</a></li>
+                <li><a target="_blank" href="http://projectsedu.com">聚学在线</a></li>
+            </ul>
+        </div>
+        <div class="advertisement">
+            广告位
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>© 2019 纸飞机的博客 京ICP备16036143号-1</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
