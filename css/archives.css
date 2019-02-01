@@ -1,0 +1,35 @@
+body {min-height:1000px;padding-top: 70px;}
+.img-brand{width: 50px; height: 50px}
+.navbar-brand{padding: 0 15px;}
+.nav a{font-size: 16px}
+.fa-sign-in{font-size: 18px}
+
+.main-wrapper{min-height:1000px;width: 75%;float: left; overflow: hidden}
+
+.main-wrapper .content-wrapper{background-color: #f8f8f8;width: 100%; padding: 20px}
+
+/*归档文章列表*/
+.main-wrapper .content-wrapper li{width: 100%; font-size: 16px;margin-bottom: 10px}
+.main-wrapper .content-wrapper .archives-month{padding-top: 10px}
+.main-wrapper .content-wrapper .archives-title{padding-top: 10px}
+
+
+
+/*右侧边栏*/
+.right-bar{width: 24%; height: 500px; float: right}
+/*推荐博客*/
+.right-bar .recommend{background-color: #f8f8f8; padding: 10px 10px}
+.right-bar .recommend h4{border-bottom: 1px solid #eeeeee; padding-bottom: 3px; box-sizing: border-box}
+.right-bar .recommend .list-group li{margin-top: 2px; margin-left: 20px}
+.right-bar .recommend .list-group a{color: #212121; font-size: 15px}
+/*友情链接*/
+.right-bar .friendly-link{background-color: #f8f8f8; padding: 10px 10px; margin-top: 10px}
+.right-bar .friendly-link h4{border-bottom: 1px solid #eeeeee; padding-bottom: 3px; box-sizing: border-box}
+.right-bar .friendly-link .list-group li{margin-top: 2px; margin-left: 20px}
+.right-bar .friendly-link .list-group a{color: #212121; font-size: 15px}
+/*广告位*/
+.right-bar .advertisement{width: 100%;height: 150px; background-color: #f8f8f8; text-align: center;line-height: 150px; margin-top: 10px}
+
+/*页脚*/
+.footer{width:100%; height:80px; background-color: #f8f8f8; text-align: center; line-height: 80px; margin-top: 20px}
+.footer p{margin: 0}
