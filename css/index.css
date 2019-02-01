@@ -4,6 +4,15 @@ body {min-height:1000px;padding-top: 70px;}
 .nav a{font-size: 16px}
 .fa-sign-in{font-size: 18px}
 
+/*导航栏搜索框*/
+.search-form{position: relative}
+.search-form input:focus{outline: none;box-shadow: none;border: 1px solid #ccc;}
+.search-form button{border: none;background-color: transparent;position: absolute; right: 15px; bottom: 6px;-webkit-appearance:none;outline: none;}
+.search-form .search-hint{display: none;position: absolute;width: 196px; background-color: #ffffff; padding: 0; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee}
+.search-form .search-hint li{list-style: none;height: 30px; line-height: 30px; width:100%;border-bottom: 1px solid #eeeeee; padding-left: 10px}
+.search-form .search-hint li:hover{background-color: #eeeeee}
+.search-form .search-hint li a{display: block;text-decoration: none; color: #212121; width: 100%; height: 100%}
+
 .main-wrapper{min-height:1000px;width: 75%;float: left; overflow: hidden}
 /*轮播图*/
 .main-wrapper .swiper-container{width: 100%;height: 300px; margin-bottom: 20px}
@@ -50,5 +59,5 @@ body {min-height:1000px;padding-top: 70px;}
 .right-bar .advertisement{width: 100%;height: 150px; background-color: #f8f8f8; text-align: center;line-height: 150px; margin-top: 10px}
 
 /*页脚*/
-.footer{width:100%; height:80px; background-color: #f8f8f8; text-align: center; line-height: 80px; margin-top: 20px}
+.footer{width:100%; height:60px; background-color: #f8f8f8; text-align: center; line-height: 60px; margin-top: 20px}
 .footer p{margin: 0}
