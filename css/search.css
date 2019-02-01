@@ -16,11 +16,15 @@ body {min-height:1000px;padding-top: 70px;}
 .main-wrapper{min-height:1000px;width: 75%;float: left; overflow: hidden}
 /*搜索框*/
 .main-wrapper .search-wrapper{width: 100%; height:150px; padding: 20px; background-color: #f8f8f8;}
-.main-wrapper .search-wrapper form{padding-top: 30px}
+.main-wrapper .search-wrapper form{padding-top: 30px; position: relative}
 .main-wrapper .search-wrapper input{box-shadow: none}
 .main-wrapper .search-wrapper input:focus{outline: none;box-shadow: none;border: 1px solid #ccc;}
 .main-wrapper .search-wrapper button {background-color: #f8f8f8; outline: none; box-shadow: none; border: 1px solid #ccc}
 .main-wrapper .search-wrapper button:active {outline: none; box-shadow: none; border: 1px solid #ccc}
+.main-wrapper .search-wrapper .hint-list{display: none;position: absolute;width: 710px; border-left: 1px solid #eeeeee; border-right: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; background-color: #ffffff; padding: 0; border-top-left-radius: 5px}
+.main-wrapper .search-wrapper .hint-list li{list-style: none; padding-left: 15px; height: 35px; line-height: 35px;}
+.main-wrapper .search-wrapper .hint-list li:hover{background-color: #eeeeee}
+.main-wrapper .search-wrapper .hint-list li a{display: block;color: #212121; text-decoration: none; font-size: 16px; width: 100%; height: 100%}
 
 /*推荐文章*/
 .main-wrapper .content-wrapper{background-color: #f8f8f8;width: 100%;padding: 10px 20px; box-sizing: border-box; margin-top: 10px}
