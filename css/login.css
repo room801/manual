@@ -4,7 +4,7 @@ body{background-color: #eeeeee;padding-top: 160px;}
 .container .social-singin{width: 432px; margin: 0 auto; padding:20px;background-color: #ffffff; overflow: hidden}
 .container .social-singin h4{margin-top: 0; margin-bottom: 0; width: 50%;height: 28px; float: left; line-height: 28px}
 .container .social-singin .social-icon{float: right; width: 50%;text-align: center; padding-left: 0; margin-top: 0; margin-bottom: 0}
-.container .social-singin .social-icon li{list-style: none; float: right; margin-right: 10px}
+.container .social-singin .social-icon li{list-style: none; float: right; margin-left: 10px}
 .container .social-singin .social-icon .weibo{background: url("../img/social-icon.png")  352px 715px;background-size: 450%;width: 30px;height: 28px;display: block}
 .container .social-singin .social-icon .weixin{background: url("../img/social-icon.png")  351px 582px;background-size: 450%;width: 30px;height: 28px;display: block}
 .container .social-singin .social-icon .qq{background: url("../img/social-icon.png")  398px 581px;background-size: 450%;width: 30px;height: 28px;display: block}
