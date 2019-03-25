@@ -38,5 +38,5 @@ body {min-height:1000px;padding-top: 70px;}
 .right-bar .advertisement{width: 100%;height: 150px; background-color: #f8f8f8; text-align: center;line-height: 150px; margin-top: 10px}
 
 /*页脚*/
-.footer{width:100%; height:80px; background-color: #f8f8f8; text-align: center; line-height: 80px; margin-top: 20px}
+.footer{width:100%; height:60px; background-color: #f8f8f8; text-align: center; line-height: 60px; margin-top: 20px}
 .footer p{margin: 0}
